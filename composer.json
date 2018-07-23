@@ -13,7 +13,6 @@
   },
   "require": {
     "php": ">=7.1.0",
-    "xervice/kernel": "^1.0.0",
     "xervice/data-provider": "^1.1.0"
   },
   "autoload": {
