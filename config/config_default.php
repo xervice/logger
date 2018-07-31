@@ -1,7 +1,7 @@
 <?php
 
-use App\Logger\LoggerConfig;
 use Xervice\DataProvider\DataProviderConfig;
+use Xervice\Logger\LoggerConfig;
 
 $config[DataProviderConfig::DATA_PROVIDER_GENERATED_PATH] = dirname(__DIR__) . '/src/Generated';
 $config[DataProviderConfig::DATA_PROVIDER_PATHS] = [
