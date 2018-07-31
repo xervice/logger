@@ -10,5 +10,7 @@ $config[DataProviderConfig::DATA_PROVIDER_PATHS] = [
 ];
 
 
-$config[LoggerConfig::LOG_FILENAME] = 'xervice.log';
-$config[LoggerConfig::LOG_PATH] = dirname(__DIR__) . '/logs';
+if (class_exists(LoggerConfig::class)) {
+    $config[LoggerConfig::LOG_FILENAME] = 'xervice.log';
+    $config[LoggerConfig::LOG_PATH] = dirname(__DIR__) . '/logs';
+}
