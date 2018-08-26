@@ -4,7 +4,7 @@
 namespace App\Logger;
 
 
-use Xervice\Logger\Business\Handler\File\FileLogHandler;
+use Xervice\Logger\Communication\Plugin\FileHandler\FileLogHandler;
 use Xervice\Logger\LoggerDependencyProvider as XerviceLoggerDependencyProvider;
 
 class LoggerDependencyProvider extends XerviceLoggerDependencyProvider

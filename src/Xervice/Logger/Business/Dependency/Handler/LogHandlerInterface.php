@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 
-namespace Xervice\Logger\Business\Handler;
+namespace Xervice\Logger\Business\Dependency\Handler;
 
 
 use DataProvider\LogMessageDataProvider;

@@ -2,16 +2,15 @@
 declare(strict_types=1);
 
 
-namespace Xervice\Logger;
+namespace Xervice\Logger\Business;
 
 
 use DataProvider\LogMessageDataProvider;
-use Xervice\Core\Facade\AbstractFacade;
+use Xervice\Core\Business\Model\Facade\AbstractFacade;
 
 /**
- * @method \Xervice\Logger\LoggerFactory getFactory()
+ * @method \Xervice\Logger\Business\LoggerBusinessFactory getFactory()
  * @method \Xervice\Logger\LoggerConfig getConfig()
- * @method \Xervice\Logger\LoggerClient getClient()
  */
 class LoggerFacade extends AbstractFacade
 {
@@ -21,5 +20,13 @@ class LoggerFacade extends AbstractFacade
     public function log(LogMessageDataProvider $messageDataProvider): void
     {
         $this->getFactory()->createLogProvider()->log($messageDataProvider);
+    }
+
+    /**
+     * @param \DataProvider\LogMessageDataProvider $messageDataProvider
+     */
+    public function writeLogToFile(LogMessageDataProvider $messageDataProvider): void
+    {
+        $this->getFactory()->createFileWriter()->writeLog($messageDataProvider);
     }
 }

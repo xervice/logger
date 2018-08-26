@@ -34,7 +34,7 @@ You can use the default FileLogger. To add a log handler, you can define them in
 namespace App\Logger;
 
 
-use Xervice\Logger\Business\Handler\File\FileLogHandler;
+use Xervice\Logger\Communication\Plugin\FileHandler\FileLogHandler;
 use Xervice\Logger\LoggerDependencyProvider as XerviceLoggerDependencyProvider;
 
 class LoggerDependencyProvider extends XerviceLoggerDependencyProvider

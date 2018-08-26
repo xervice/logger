@@ -2,13 +2,15 @@
 declare(strict_types=1);
 
 
-namespace Xervice\Logger\Business\Handler;
+namespace Xervice\Logger\Business\Model\Handler;
 
+
+use Xervice\Logger\Business\Dependency\Handler\LogHandlerInterface;
 
 class HandlerCollection implements \Iterator, \Countable
 {
     /**
-     * @var \Xervice\Logger\Business\Handler\LogHandlerInterface[]
+     * @var \Xervice\Logger\Business\Dependency\Handler\LogHandlerInterface[]
      */
     private $collection;
 
@@ -20,7 +22,7 @@ class HandlerCollection implements \Iterator, \Countable
     /**
      * Collection constructor.
      *
-     * @param \Xervice\Logger\Business\Handler\LogHandlerInterface[] $collection
+     * @param \Xervice\Logger\Business\Dependency\Handler\LogHandlerInterface[] $collection
      */
     public function __construct(array $collection)
     {
@@ -30,7 +32,7 @@ class HandlerCollection implements \Iterator, \Countable
     }
 
     /**
-     * @param \Xervice\Logger\Business\Handler\LogHandlerInterface $validator
+     * @param \Xervice\Logger\Business\Dependency\Handler\LogHandlerInterface $validator
      */
     public function add(LogHandlerInterface $validator): void
     {
@@ -38,7 +40,7 @@ class HandlerCollection implements \Iterator, \Countable
     }
 
     /**
-     * @return \Xervice\Logger\Business\Handler\LogHandlerInterface
+     * @return \Xervice\Logger\Business\Dependency\Handler\LogHandlerInterface
      */
     public function current(): LogHandlerInterface
     {

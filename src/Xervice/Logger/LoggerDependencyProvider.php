@@ -5,34 +5,47 @@ declare(strict_types=1);
 namespace Xervice\Logger;
 
 
-use Xervice\Core\Dependency\DependencyProviderInterface;
-use Xervice\Core\Dependency\Provider\AbstractProvider;
-use Xervice\Logger\Business\Handler\HandlerCollection;
+use Xervice\Core\Business\Model\Dependency\DependencyContainerInterface;
+use Xervice\Core\Business\Model\Dependency\Provider\AbstractDependencyProvider;
+use Xervice\Logger\Business\Model\Handler\HandlerCollection;
 
-/**
- * @method \Xervice\Core\Locator\Locator getLocator()
- */
-class LoggerDependencyProvider extends AbstractProvider
+class LoggerDependencyProvider extends AbstractDependencyProvider
 {
     public const LOG_HANDLER = 'log.handler';
 
     /**
-     * @param \Xervice\Core\Dependency\DependencyProviderInterface $dependencyProvider
+     * @param \Xervice\Core\Business\Model\Dependency\DependencyContainerInterface $container
+     *
+     * @return \Xervice\Core\Business\Model\Dependency\DependencyContainerInterface
      */
-    public function handleDependencies(DependencyProviderInterface $dependencyProvider): void
+    public function handleDependencies(DependencyContainerInterface $container): DependencyContainerInterface
     {
-        $dependencyProvider[self::LOG_HANDLER] = function () {
-            return new HandlerCollection(
-                $this->getLogHandler()
-            );
-        };
+        $container = $this->addLogHandler($container);
+
+        return $container;
     }
 
     /**
-     * @return \Xervice\Logger\Business\Handler\LogHandlerInterface[]
+     * @return \Xervice\Logger\Business\Dependency\Handler\LogHandlerInterface[]
      */
     protected function getLogHandler(): array
     {
         return [];
     }
+
+    /**
+     * @param \Xervice\Core\Business\Model\Dependency\DependencyContainerInterface $container
+     *
+     * @return \Xervice\Core\Business\Model\Dependency\DependencyContainerInterface
+     */
+    protected function addLogHandler(
+        DependencyContainerInterface $container
+    ): DependencyContainerInterface {
+        $container[self::LOG_HANDLER] = function () {
+            return new HandlerCollection(
+                $this->getLogHandler()
+            );
+        };
+        return $container;
+}
 }

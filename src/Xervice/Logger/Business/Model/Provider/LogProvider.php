@@ -1,24 +1,22 @@
 <?php
 declare(strict_types=1);
 
-
-namespace Xervice\Logger\Business\Provider;
-
+namespace Xervice\Logger\Business\Model\Provider;
 
 use DataProvider\LogMessageDataProvider;
-use Xervice\Logger\Business\Handler\HandlerCollection;
+use Xervice\Logger\Business\Model\Handler\HandlerCollection;
 
 class LogProvider implements LogProviderInterface
 {
     /**
-     * @var \Xervice\Logger\Business\Handler\HandlerCollection
+     * @var \Xervice\Logger\Business\Model\Handler\HandlerCollection
      */
     private $handlerCollection;
 
     /**
      * LogProvider constructor.
      *
-     * @param \Xervice\Logger\Business\Handler\HandlerCollection $handlerCollection
+     * @param \Xervice\Logger\Business\Model\Handler\HandlerCollection $handlerCollection
      */
     public function __construct(HandlerCollection $handlerCollection)
     {

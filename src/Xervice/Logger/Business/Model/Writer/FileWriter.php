@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 
-namespace Xervice\Logger\Business\Writer;
+namespace Xervice\Logger\Business\Model\Writer;
 
 
 use DataProvider\LogMessageDataProvider;

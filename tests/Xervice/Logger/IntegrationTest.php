@@ -4,7 +4,7 @@ declare(strict_types=1);
 namespace XerviceTest\Logger;
 
 use DataProvider\LogMessageDataProvider;
-use Xervice\Core\Locator\Dynamic\DynamicLocator;
+use Xervice\Core\Business\Model\Locator\Dynamic\Business\DynamicBusinessLocator;
 
 require_once __DIR__ . '/TestInjector/LoggerConfig.php';
 require_once __DIR__ . '/TestInjector/LoggerDependencyProvider.php';
@@ -14,7 +14,7 @@ require_once __DIR__ . '/TestInjector/LoggerDependencyProvider.php';
  */
 class IntegrationTest extends \Codeception\Test\Unit
 {
-    use DynamicLocator;
+    use DynamicBusinessLocator;
 
     protected function _after()
     {
